@@ -29,7 +29,6 @@ Run a comprehensive pull request review using multiple specialized agents, each 
 
 3. **Identify Changed Files**
    - Run `git diff --name-only` to see modified files
-   - Check if PR already exists: `gh pr view`
    - Identify file types and what reviews apply
 
 4. **Determine Applicable Reviews**
