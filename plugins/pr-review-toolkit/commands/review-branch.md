@@ -28,10 +28,16 @@ Run a comprehensive code review using multiple specialized agents, each focusing
    - **all** - Run all applicable reviews (default)
 
 3. **Identify Changed Files**
-   - First use git to find the parent branch, use "git merge-base" tactics.
-   - Then run "git log <parent branch>..HEAD" to find the commits in only in this branch.
-   - Now you get the changes made from those commits and do the code review on those changes.
-   - Identify file types and what reviews apply
+   - Determine the parent branch
+     - Use Git to detect which branch the current branch was originally created from.
+     - Don’t assume main — instead, use git merge-base and compare against candidate branches to find the most recent common ancestor.
+  - List commits unique to the current branch
+     - Once the parent branch is identified, run: "git log <parent-branch>..HEAD"
+     - This shows only the commits that exist in the current branch.
+  - Extract and review changed files
+     - From those commits, collect the list of changed files.
+     - Perform a focused code review on the differences introduced in these commits.
+  - Identify file types and what reviews apply
 
 5. **Determine Applicable Reviews**
 
