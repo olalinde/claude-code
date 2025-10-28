@@ -13,7 +13,7 @@ Run a comprehensive code review using multiple specialized agents, each focusing
 ## Review Workflow:
 
 1. **Determine Review Scope**
-   - Use git to identify ALL changes made in the current branch
+   - Use git to identify changes made in the current branch
    - Parse arguments to see if user requested specific review aspects
    - Default: Run all applicable reviews
 
@@ -28,10 +28,12 @@ Run a comprehensive code review using multiple specialized agents, each focusing
    - **all** - Run all applicable reviews (default)
 
 3. **Identify Changed Files**
-   - Run appropriate git commands to get all changes made to the current branch.
+   - First use git to find the parent branch, use "git merge-base" tactics.
+   - Then run "git log <parent branch>..HEAD" to find the commits in only in this branch.
+   - Now you get the changes made from those commits and do the code review on those changes.
    - Identify file types and what reviews apply
 
-4. **Determine Applicable Reviews**
+5. **Determine Applicable Reviews**
 
    Based on changes:
    - **Always applicable**: code-reviewer (general quality)
@@ -41,7 +43,7 @@ Run a comprehensive code review using multiple specialized agents, each focusing
    - **If types added/modified**: type-design-analyzer
    - **After passing review**: code-simplifier (polish and refine)
 
-5. **Launch Review Agents**
+6. **Launch Review Agents**
 
    **Sequential approach** (one at a time):
    - Easier to understand and act on
@@ -53,7 +55,7 @@ Run a comprehensive code review using multiple specialized agents, each focusing
    - Faster for comprehensive review
    - Results come back together
 
-6. **Aggregate Results**
+7. **Aggregate Results**
 
    After agents complete, summarize:
    - **Critical Issues** (must fix before merge)
@@ -61,7 +63,7 @@ Run a comprehensive code review using multiple specialized agents, each focusing
    - **Suggestions** (nice to have)
    - **Positive Observations** (what's good)
 
-7. **Provide Action Plan**
+8. **Provide Action Plan**
 
    Organize findings:
    ```markdown
