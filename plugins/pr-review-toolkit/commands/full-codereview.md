@@ -1,5 +1,5 @@
 ---
-description: "Comprehensive code review using specialized agents"
+description: "Comprehensive code review of the current git branch using specialized agents"
 argument-hint: "[review-aspects]"
 allowed-tools: ["Bash", "Glob", "Grep", "Read", "Task"]
 ---
@@ -90,24 +90,24 @@ Run a comprehensive code review using multiple specialized agents, each focusing
 
 **Full Code review (default):**
 ```
-/code-review-toolkit:review-code
+/code-review-toolkit:full-codereview
 ```
 
 **Specific aspects:**
 ```
-/code-review-toolkit:review-code tests errors
+/code-review-toolkit:full-codereview tests errors
 # Reviews only test coverage and error handling
 
-/code-review-toolkit:review-code comments
+/code-review-toolkit:full-codereview comments
 # Reviews only code comments
 
-/code-review-toolkit:review-code simplify
+/code-review-toolkit:full-codereview simplify
 # Simplifies code after passing review
 ```
 
 **Parallel review:**
 ```
-/code-review-toolkit:review-code all parallel
+/code-review-toolkit:full-codereview all parallel
 # Launches all agents in parallel
 ```
 
@@ -156,7 +156,7 @@ Run a comprehensive code review using multiple specialized agents, each focusing
 **Before committing:**
 ```
 1. Write code
-2. Run: /code-review-toolkit:review-code code errors
+2. Run: /code-review-toolkit:full-codereview code errors
 3. Fix any critical issues
 4. Commit
 ```
