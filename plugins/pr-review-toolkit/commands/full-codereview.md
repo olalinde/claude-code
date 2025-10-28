@@ -1,5 +1,5 @@
 ---
-description: "Comprehensive code review of the current git branch using specialized agents"
+description: "Comprehensive code review of changes not commited using specialized agents"
 argument-hint: "[review-aspects]"
 allowed-tools: ["Bash", "Glob", "Grep", "Read", "Task"]
 ---
