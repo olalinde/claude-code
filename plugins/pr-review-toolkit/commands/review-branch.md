@@ -1,5 +1,5 @@
 ---
-description: "Comprehensive code review of all changes in the current git branch using specialized agents"
+description: "Comprehensive code review of changes made int the current git branch using specialized agents"
 argument-hint: "[review-aspects]"
 allowed-tools: ["Bash", "Glob", "Grep", "Read", "Task"]
 ---
@@ -31,6 +31,7 @@ Run a comprehensive code review using multiple specialized agents, each focusing
    - Determine the parent branch
      - Use Git to detect which branch the current branch was originally created from.
      - Don’t assume main — instead, use git merge-base and compare against candidate branches to find the most recent common ancestor.
+     - Do another tactic to find the nearest tactics and compare the results and use the best one.
   - List commits unique to the current branch
      - Once the parent branch is identified, run: "git log <parent-branch>..HEAD"
      - This shows only the commits that exist in the current branch.
