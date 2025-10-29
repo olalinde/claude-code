@@ -1,6 +1,6 @@
 ---
 description: "Comprehensive code review of changes made in the current git branch using specialized agents"
-argument-hint: "[review-aspects]"
+argument-hint: "[review-branch-or-aspects]"
 allowed-tools: ["Bash", "Glob", "Grep", "Read", "Task"]
 ---
 
