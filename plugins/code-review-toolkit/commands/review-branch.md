@@ -8,7 +8,7 @@ allowed-tools: ["Bash", "Glob", "Grep", "Read", "Task"]
 
 Run a comprehensive code review using multiple specialized agents, each focusing on a different aspect of code quality.
 
-**Review Aspects OR git branch (optional):** "$ARGUMENTS"
+** git branch OR Review Aspects(optional):** "$ARGUMENTS"
 
 ## Review Workflow:
 

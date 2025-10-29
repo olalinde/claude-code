@@ -1,11 +1,11 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "claude-code-plugins",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Bundled plugins for Claude Code including Agent SDK development tools, PR review toolkit, and commit workflows",
   "owner": {
-    "name": "Anthropic",
-    "email": "support@anthropic.com"
+    "name": "3bits",
+    "email": "ola.linde@3bits.se"
   },
   "plugins": [
     {
@@ -15,14 +15,14 @@
       "category": "development"
     },
     {
-      "name": "pr-review-toolkit",
-      "description": "Comprehensive PR review agents specializing in comments, tests, error handling, type design, code quality, and code simplification",
+      "name": "code-review-toolkit",
+      "description": "Comprehensive PR review agents specializing in comments, tests, error handling, type design, code quality, and code simplification. Forked from Anthropic.",
       "version": "1.0.3",
       "author": {
-        "name": "Anthropic",
-        "email": "support@anthropic.com"
+        "name": "3bits",
+        "email": "ola.linde@3bits.se"
       },
-      "source": "./plugins/pr-review-toolkit",
+      "source": "./plugins/code-review-toolkit",
       "category": "productivity"
     },
     {
@@ -46,17 +46,6 @@
       },
       "source": "./plugins/feature-dev",
       "category": "development"
-    },
-    {
-      "name": "security-guidance",
-      "description": "Security reminder hook that warns about potential security issues when editing files, including command injection, XSS, and unsafe code patterns",
-      "version": "1.0.0",
-      "author": {
-        "name": "David Dworken",
-        "email": "dworken@anthropic.com"
-      },
-      "source": "./plugins/security-guidance",
-      "category": "security"
     }
   ]
 }
