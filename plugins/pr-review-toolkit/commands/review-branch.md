@@ -8,7 +8,7 @@ allowed-tools: ["Bash", "Glob", "Grep", "Read", "Task"]
 
 Run a comprehensive code review using multiple specialized agents, each focusing on a different aspect of code quality.
 
-**Review Aspects (optional):** "$ARGUMENTS"
+**Review Aspects OR git branch (optional):** "$ARGUMENTS"
 
 ## Review Workflow:
 
@@ -29,9 +29,11 @@ Run a comprehensive code review using multiple specialized agents, each focusing
 
 3. **Identify Changed Files**
    - Determine the parent branch
-     - Use Git to detect which branch the current branch was originally created from.
-     - Don’t assume main — instead, use git merge-base and compare against candidate branches to find the most recent common ancestor.
-     - Do another tactic to find the nearest tactics and compare the results and use the best one.
+     - If a branch is defined in the argument, use that branch as the parent branch.
+     - ELSE
+        - Use Git to detect which branch the current branch was originally created from.
+        - Don’t assume main — instead, use git merge-base and compare against candidate branches to find the most recent common ancestor.
+        - Do another tactic to find the nearest tactics and compare the results and use the best one.
   - List commits unique to the current branch
      - Once the parent branch is identified, run: "git log <parent-branch>..HEAD"
      - This shows only the commits that exist in the current branch.
@@ -40,8 +42,7 @@ Run a comprehensive code review using multiple specialized agents, each focusing
      - Perform a focused code review on the differences introduced in these commits.
   - Identify file types and what reviews apply
 
-5. **Determine Applicable Reviews**
-
+4. **Determine Applicable Reviews**
    Based on changes:
    - **Always applicable**: code-reviewer (general quality)
    - **If test files changed**: pr-test-analyzer
@@ -50,7 +51,7 @@ Run a comprehensive code review using multiple specialized agents, each focusing
    - **If types added/modified**: type-design-analyzer
    - **After passing review**: code-simplifier (polish and refine)
 
-6. **Launch Review Agents**
+5. **Launch Review Agents**
 
    **Sequential approach** (one at a time):
    - Easier to understand and act on
@@ -62,7 +63,7 @@ Run a comprehensive code review using multiple specialized agents, each focusing
    - Faster for comprehensive review
    - Results come back together
 
-7. **Aggregate Results**
+6. **Aggregate Results**
 
    After agents complete, summarize:
    - **Critical Issues** (must fix before merge)
@@ -70,7 +71,7 @@ Run a comprehensive code review using multiple specialized agents, each focusing
    - **Suggestions** (nice to have)
    - **Positive Observations** (what's good)
 
-8. **Provide Action Plan**
+7. **Provide Action Plan**
 
    Organize findings:
    ```markdown
