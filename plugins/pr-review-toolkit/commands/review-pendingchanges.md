@@ -90,24 +90,24 @@ Run a comprehensive code review using multiple specialized agents, each focusing
 
 **Full Code review (default):**
 ```
-/code-review-toolkit:full-codereview
+/code-review-toolkit:review-pendingchanges
 ```
 
 **Specific aspects:**
 ```
-/code-review-toolkit:full-codereview tests errors
+/code-review-toolkit:review-pendingchanges tests errors
 # Reviews only test coverage and error handling
 
-/code-review-toolkit:full-codereview comments
+/code-review-toolkit:review-pendingchanges comments
 # Reviews only code comments
 
-/code-review-toolkit:full-codereview simplify
+/code-review-toolkit:review-pendingchanges simplify
 # Simplifies code after passing review
 ```
 
 **Parallel review:**
 ```
-/code-review-toolkit:full-codereview all parallel
+/code-review-toolkit:review-pendingchanges all parallel
 # Launches all agents in parallel
 ```
 
@@ -156,7 +156,7 @@ Run a comprehensive code review using multiple specialized agents, each focusing
 **Before committing:**
 ```
 1. Write code
-2. Run: /code-review-toolkit:full-codereview code errors
+2. Run: /code-review-toolkit:review-pendingchanges code errors
 3. Fix any critical issues
 4. Commit
 ```
