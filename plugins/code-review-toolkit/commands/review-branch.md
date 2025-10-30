@@ -1,6 +1,6 @@
 ---
 description: "Comprehensive code review of changes made in the current git branch using specialized agents"
-argument-hint: "[review-branch-or-aspects]"
+argument-hint: "[ancestor-branch]"
 allowed-tools: ["Bash", "Glob", "Grep", "Read", "Task"]
 ---
 
@@ -8,7 +8,7 @@ allowed-tools: ["Bash", "Glob", "Grep", "Read", "Task"]
 
 Run a comprehensive code review using multiple specialized agents, each focusing on a different aspect of code quality.
 
-** git branch OR Review Aspects(optional):** "$ARGUMENTS"
+** git ancestor branch (optional):** "$ARGUMENTS"
 
 ## Review Workflow:
 
@@ -28,14 +28,14 @@ Run a comprehensive code review using multiple specialized agents, each focusing
    - **all** - Run all applicable reviews (default)
 
 3. **Identify Changed Files**
-   - Determine the parent branch
-     - If a branch is defined in the argument, use that branch as the parent branch.
+   - Determine the ancestor branch
+     - If a ancestor branch is defined in the argument, use that branch as the ancestor branch.
      - ELSE
         - Use Git to detect which branch the current branch was originally created from.
         - Don’t assume main — instead, use git merge-base and compare against candidate branches to find the most recent common ancestor.
         - Do another tactic to find the nearest tactics and compare the results and use the best one.
-  - List commits unique to the current branch
-     - Once the parent branch is identified, run: "git log <parent-branch>..HEAD"
+  - List commits unique to the current branch compared to the ancestor branch
+     - Once the ancestor branch is identified, run: "git log <ancestor branch>..HEAD"
      - This shows only the commits that exist in the current branch.
   - Extract and review changed files
      - From those commits, collect the list of changed files.
