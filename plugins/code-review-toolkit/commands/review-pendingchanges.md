@@ -28,7 +28,7 @@ Run a comprehensive code review using multiple specialized agents, each focusing
    - **all** - Run all applicable reviews (default)
 
 3. **Identify Changed Files**
-   - Run `git diff --name-only` to see modified files
+   - Run `git diff --name-only HEAD` to see modified files
    - Identify file types and what reviews apply
 
 4. **Determine Applicable Reviews**
